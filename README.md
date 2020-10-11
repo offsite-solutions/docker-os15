@@ -146,9 +146,9 @@ Default entrypoint of docker images, executes:
 3. Starts supervisord
 
 ## Supervisord
-http://supervisord.org/
+Supervisord ( http://supervisord.org/ ) ensures that all services started on container run:
+
     /etc/supervisor.conf
-Supervisord ensures that all services started on container run:
 
 ### Services started
 #### Apache 2.4
