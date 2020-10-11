@@ -3,6 +3,7 @@ if [ -n "$1" ]; then VER=$1; else VER=latest; fi;
 
 start=`date +%s`
 ./build_base.sh $VER
+./build_base_nodb.sh $VER
 ./build_base_oci8.sh $VER
 ./build_base_pgsql.sh $VER
 ./build_base_sqlsrv.sh $VER

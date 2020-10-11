@@ -8,7 +8,7 @@ docker build \
 --force-rm \
 --no-cache \
 --rm \
---build-arg with_xdebug=FALSE --build-arg with_composer=FALSE --build-arg with_oci8=TRUE --build-arg with_pgsql=TRUE --build-arg with_sqlsrv=TRUE \
+--build-arg with_xdebug=FALSE --build-arg with_composer=TRUE --build-arg with_oci8=TRUE --build-arg with_pgsql=TRUE --build-arg with_sqlsrv=TRUE \
 -t os15-php74-base-dev:$VER -t os15-php74-base-dev:latest . \
 &&
 cd $cwd || exit
