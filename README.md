@@ -27,7 +27,7 @@ Base image is based on OpenSUSE Leap 15.2, with the following features:
 #### Apache 2.4
     /etc/apache2/conf.d/loadmodule.conf
 - Listening on 80
-    - SSL preconfigured, but not enabled in listener.conf
+    - SSL preconfigured, but not enabled in the `listener.conf`
 - Modules installed and enabled by default
     - filter_module - required for hardening
     - deflate_module - compressed response
@@ -39,7 +39,7 @@ Base image is based on OpenSUSE Leap 15.2, with the following features:
 
 ##### Hardening
     /etc/apache2/conf.d/hardening.conf
-Default hardening is enabled according to https://geekflare.com/apache-web-server-hardening-security/
+Default hardening enabled according to https://geekflare.com/apache-web-server-hardening-security/
 
 ###### Denied directories
     /etc/apache2/conf.d/deniedfiles.conf
@@ -47,10 +47,10 @@ Access to directories and files starting with a dot (ex: .git, .svn, .htaccess) 
 
 ##### PHP-FPM
     /etc/apache2/conf.d/fpm.conf
-FPM engine is configured to listen on tcp:9074 (see later).
+FPM engine configured to listen on TCP:9074 (see later).
 
 ##### Response compression
-Response compression is enabled by default for the following mime types:
+Response compression enabled by default for the following mime types:
 - text/plain
 - text/html
 - text/xml
@@ -63,12 +63,12 @@ Response compression is enabled by default for the following mime types:
 - application/json
 
 #### Logs
-Apache logs are located in
+Apache logs located in
 
     /var/log/apache2
 
 ### PHP 7.4
-Actual version of PHP 7.4 installed with the followings:
+The actual version of PHP 7.4 installed with the followings:
 
 #### Modules
 - fpm
@@ -97,13 +97,13 @@ PHP ini settings found in:
     /etc/php7/conf.d/000_php.ini
 
 #### FPM
-FPM is configured to listen on TCP:9074
+FPM configured to listen on TCP:9074
 
     /etc/php7/fpm/php-fpm.d/default.conf
 
 #### PEAR
     /etc/php7/conf.d/000_pear.ini
-PEAR is installed with the following modules
+PEAR installed with the following modules
 - Mail
 - Mail_Mime
 - Net_SMTP
@@ -121,7 +121,7 @@ Composer is an additional module (see later).
 XDebug is an additional module (see later).
 
 #### Logs
-PHP and FPM logs are located in
+PHP and FPM logs located in
 
     /var/log/apache2/ 
 
@@ -168,12 +168,12 @@ Supervisor logs can be found in
     /var/log/supervisord/supervisord.log
     
 ### Security
-Supervisord admin is listening on TCP:9010, the config file NOT CONTAINS the password for the GUI!
+Supervisord admin is listening on TCP:9010, the config file **NOT CONTAINS** the password for the admin GUI!
 
 ## Additional features
     ./os15-php74-xxx/
 
-os15-php74-xxx images are based on os15-php74-base image, but with special arguments to ensure the ability to build the proper image with required features only.
+os15-php74-xxx images based on os15-php74-base image, but with special arguments to ensure the ability to build the proper image with required features only.
 
 Docker build arguments are:
 - with_xdebug=TRUE|FALSE
@@ -256,24 +256,24 @@ with the following features:
 ### Build local development base images
 #### Without XDebug
     ./build_base_dev.sh [version-tag]
-Images are built with:
+Images built with:
 - all database drivers
 - composer installed
 - XDebug not installed
-- OPCache enabled (should disabled in final image, see later)
+- OPCache enabled (should be disabled in the final image, see later)
 
 #### With XDebug
     ./build_base_dev_debug.sh [version-tag]
 
 ## Local development example
-    ./local-dev
+    ./local-dev/
     
 ### Prerequisites
-1. Base image created with
+#### Base image created with
 
     ./build-scripts/build_base.sh
     
-2. Development base image created with
+#### Development base image created with
 
     ./build-scripts/build_base_dev.sh
     
@@ -282,24 +282,25 @@ Images are built with:
     
 Creating offsite_dev image from os15-php74-base-dev
     
-1. Setting volumes to be mounted to host filesystem
-2. Adding extra config files
+1 - Setting volumes to be mounted to host filesystem
+
+2 - Adding extra config files
     - disabling opcache by adding (ZZZ_ prefix is for ensure it is loaded after defualt ini-s)
 
 
     /etc/php7/conf.d/ZZZ_opcache.ini
 
-3. Copying local pre-start script to 
+3 - Copying local pre-start script to 
 
 
     /usr/local/bin/pre_start_local.sh
     
-4. including local pre-start script into the default pre-start script
+4 - including local pre-start script into the default pre-start script
 
 
     RUN printf "\n/usr/local/bin/pre_start_local.sh\n" >> /usr/local/bin/pre_start.sh;  
     
-5. Create and run container with volume mounts, port exposes
+5 - Create and run container with volume mounts, port exposes
 
 
     docker run -d \
@@ -311,11 +312,12 @@ Creating offsite_dev image from os15-php74-base-dev
       --entrypoint /usr/local/bin/start.sh \
       offsite-dev:latest;
       
-## Local pre-start script
+      
+### Local pre-start script
 
-1. Links Apache configuration files to /etc/apache2/conf.d/ managed on the host system
-2. Links Apache virtual host files to /etc/apache2/vhosts.d/ managed on the host system
+1. Links Apache configuration files to `/etc/apache2/conf.d/` managed on the host system
+2. Links Apache virtual host files to `/etc/apache2/vhosts.d/` managed on the host system
 3. Some ORACLE configuration
 4. Creating a phpinfo page into Apache root directory just for testing
-5. Turning off Apache hardening with renaming /etc/apache2/conf.d/hardening.conf to hardening.conf-off
+5. Turning off Apache hardening with renaming `/etc/apache2/conf.d/hardening.conf` to hardening.conf-off
 6. Ensures working of host system symbolic links with some magic
