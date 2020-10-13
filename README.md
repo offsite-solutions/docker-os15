@@ -117,8 +117,8 @@ OPCache is enabled by default
 #### Composer
 Composer is an additional module (see later).
 
-#### XDebug
-XDebug is an additional module (see later).
+#### xDebug
+xDebug is an additional module (see later).
 
 #### Logs
 PHP and FPM logs located in
@@ -176,16 +176,16 @@ Supervisord admin is listening on TCP:9010, the config file **NOT CONTAINS** the
 os15-php74-xxx images based on os15-php74-base image, but with special arguments to ensure the ability to build the proper image with required features only.
 
 Docker build arguments are:
-- with_xdebug=TRUE|FALSE
+- with_xDebug=TRUE|FALSE
 - with_composer=TRUE|FALSE
 - with_oci8=TRUE|FALSE
 - with_pgsql=TRUE|FALSE
 - with_sqlsrv=TRUE|FALSE
 
-Example, build a base image with oci8 driver and xdebug enabled:
+Example, build a base image with oci8 driver and xDebug enabled:
 
     docker build \
-    --build-arg with_xdebug=TRUE \
+    --build-arg with_xDebug=TRUE \
     --build-arg with_composer=FALSE \
     --build-arg with_oci8=TRUE \
     --build-arg with_pgsql=FALSE \
@@ -210,9 +210,9 @@ Example, build a base image with oci8 driver and xdebug enabled:
 - PHP 7.4 PDO
 - PEAR MDB2#sqlsrv beta
 
-### XDebug
-    --build-arg with_xdebug=TRUE
-- PHP 7.4 XDebug extension
+### xDebug
+    --build-arg with_xDebug=TRUE
+- PHP 7.4 xDebug extension
 
 ### Composer
     --build-arg with_composer=TRUE
@@ -221,10 +221,10 @@ Example, build a base image with oci8 driver and xdebug enabled:
 ## Build scripts
 Found in ./build-scripts/
 
-Build scripts are bash shell scripts with one optional command line parameter: docker image version - if not present the images will be built with :latest tag. 
+Build scripts are bash shell scripts, which builds images with :latest tag.  
 
 ### Build all base image
-    ./build_all.sh [version-tag]
+    ./build_all.sh
     
     ex: ./build_all.sh 1.0
     the following images will be created:
@@ -236,12 +236,13 @@ Builds base and additional images including dev and dev-debug. The following ima
 - os15-php74-base
 - os15-php74-dev
 - os15-php74-dev-debug
+- os15-php74-nodb
 - os15-php74-pgsql
 - os15-php74-sqlsrv
 - os15-php74-oci8
 
 ### Build all production base image
-    ./build_all_prod.sh [version-tag]
+    ./build_all_prod.sh
 Builds database related images:
 - os15-php74-nodb
 - os15-php74-pgsql
@@ -250,20 +251,20 @@ Builds database related images:
 
 with the following features:
 - OPCache enabled
-- XDebug not installed
+- xDebug not installed
 - Composer installed
 
 ### Build local development base images
-#### Without XDebug
+#### Without xDebug
     ./build_base_dev.sh [version-tag]
 Images built with:
 - all database drivers
 - composer installed
-- XDebug not installed
+- xDebug not installed
 - OPCache enabled (should be disabled in the final image, see later)
 
-#### With XDebug
-    ./build_base_dev_debug.sh [version-tag]
+#### With xDebug
+    ./build_base_dev_debug.sh
 
 ## Local development example
     ./local-dev/

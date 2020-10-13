@@ -7,6 +7,8 @@ cd ../base/os15-php74 \
 docker build \
 --force-rm \
 --rm \
--t os15-php74-base:$VER -t os15-php74-base:latest . \
+-t os15-php74-base:latest . \
+&&
+docker tag os15-php74-base:latest offsite/os15-php74-base:latest \
 &&
 cd "$cwd" || exit

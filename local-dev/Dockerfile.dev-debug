@@ -1,4 +1,4 @@
-FROM os15-php74-base-dev-debug:latest
+FROM offsite/os15-php74-base-dev-debug:latest
 
 VOLUME /host
 VOLUME /var/log/applications

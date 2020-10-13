@@ -9,6 +9,8 @@ docker build \
 --no-cache \
 --rm \
 --build-arg with_xdebug=FALSE --build-arg with_composer=TRUE --build-arg with_oci8=FALSE --build-arg with_pgsql=TRUE --build-arg with_sqlsrv=FALSE \
--t os15-php74-base-pgsql:$VER -t os15-php74-base-pgsql:latest . \
+-t os15-php74-base-pgsql:latest . \
+&&
+docker tag os15-php74-base-pgsql:latest offsite/os15-php74-base-pgsql:$VER \
 &&
 cd $cwd || exit

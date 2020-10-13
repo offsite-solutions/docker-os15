@@ -1,4 +1,4 @@
-FROM os15-php74-base:latest
+FROM offsite/os15-php74-base:latest
 
 ARG with_xdebug=FALSE
 ARG with_composer=FALSE
@@ -19,4 +19,4 @@ RUN if [ "_$with_xdebug" = "_TRUE" ] ; then /usr/local/bin/install_xdebug.sh || 
     zypper --non-interactive clean -a; \
     rm -rf /tmp/*;
 
-EXPOSE 80 443 9010 9000
+EXPOSE 80 443 9010 9050
