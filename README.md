@@ -7,14 +7,10 @@ Base image is based on OpenSUSE Leap 15.2, with the following features:
 - Apache 2.4
 - Cronie
 - Supervisord
-- Versioning clients
-    - Git
-    - Subversion
 - Network
     - curl
     - telnet
 - Runtime editing - debugging
-    - Midnight Commander
     - Nano
     
 ### PHP 7.4
@@ -176,7 +172,7 @@ Supervisord admin is listening on TCP:9010, the config file **NOT CONTAINS** the
 os15-php74-xxx images based on os15-php74-base image, but with special arguments to ensure the ability to build the proper image with required features only.
 
 Docker build arguments are:
-- with_xDebug=TRUE|FALSE
+- with_xdebug=TRUE|FALSE
 - with_composer=TRUE|FALSE
 - with_oci8=TRUE|FALSE
 - with_pgsql=TRUE|FALSE
@@ -185,7 +181,7 @@ Docker build arguments are:
 Example, build a base image with oci8 driver and xDebug enabled:
 
     docker build \
-    --build-arg with_xDebug=TRUE \
+    --build-arg with_xdebug=TRUE \
     --build-arg with_composer=FALSE \
     --build-arg with_oci8=TRUE \
     --build-arg with_pgsql=FALSE \
