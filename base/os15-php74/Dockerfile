@@ -9,10 +9,7 @@ RUN zypper --non-interactive --gpg-auto-import-keys \
     zypper --non-interactive --gpg-auto-import-keys install \
       apache2 \
       cronie \
-      git \
-      subversion \
       curl \
-      mc \
       supervisor \
       nano \
       telnet \
