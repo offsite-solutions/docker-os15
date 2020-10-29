@@ -6,7 +6,7 @@ docker run -d \
   -v /Users/baxi/Work:/host \
   -v /Users/baxi/Work/dockerlogs/dev_debug/applications:/var/log/applications \
   -v /Users/baxi/Work/dockerlogs/dev_debug/apache2:/var/log/apache2 \
-  -p 10081:80 -p 9011:9010 -p 10443:443 \
-  --name offsite_dev_debug \
+  -p 10081:80 -p 9011:9010 -p 10443:443 -p 10444:10444 \
+  --name offsite-dev-debug \
   --entrypoint /usr/local/bin/start.sh \
-  offsite-dev-debug:$VER;
+  offsite_dev_debug:$VER;

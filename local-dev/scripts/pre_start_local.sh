@@ -10,6 +10,10 @@ find /host/dockerconfig/etc/apache2/conf.d/ -name "*.conf" -exec ln -sf {} /etc/
 printf "Linking Apache2 VirtualHost configurations...\n"
 find /host/dockerconfig/etc/apache2/vhosts.d/ -name "*.conf" -exec ln -sf {} /etc/apache2/vhosts.d/ \;
 
+# extra hosts files
+printf "Adding extra hosts definitions... \n"
+cat /host/dockerconfig/etc/hosts >> /etc/hosts
+
 # linking tnsadmin
 printf "Linking ORACLE TNS_ADMIN...\n"
 ln -sf /host/dockerconfig/instantclient/tnsnames.ora /usr/lib/oracle/19.8/client64/
