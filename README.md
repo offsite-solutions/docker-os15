@@ -86,6 +86,7 @@ The actual version of PHP 7.4 installed with the followings:
 - xmlwriter
 - opcache
 - pear
+- redis
 
 #### php.ini
 PHP ini settings found in:

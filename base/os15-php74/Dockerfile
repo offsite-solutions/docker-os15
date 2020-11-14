@@ -34,7 +34,8 @@ RUN zypper --non-interactive --gpg-auto-import-keys \
       php7-xmlreader \
       php7-xmlwriter \
       php7-opcache \
-      php7-pear; \
+      php7-pear \
+      php7-redis; \
     pear channel-update pear.php.net; \
     pear install Mail Mail_Mime Net_SMTP; \
     mkdir -p /var/log/fpm; \
