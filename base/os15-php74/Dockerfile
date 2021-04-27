@@ -1,10 +1,10 @@
-FROM opensuse/leap:15.2
+FROM opensuse/leap:15.3
 
 # https://software.opensuse.org/explore
 
 # php7
 RUN zypper --non-interactive --gpg-auto-import-keys \
-      addrepo "https://download.opensuse.org/repositories/devel:languages:php/openSUSE_Leap_15.2/devel:languages:php.repo"; \
+      addrepo "https://download.opensuse.org/repositories/devel:languages:php/openSUSE_Leap_15.3/devel:languages:php.repo"; \
     zypper --non-interactive --gpg-auto-import-keys refresh; \
     zypper --non-interactive --gpg-auto-import-keys install \
       apache2 \
@@ -35,7 +35,8 @@ RUN zypper --non-interactive --gpg-auto-import-keys \
       php7-xmlwriter \
       php7-opcache \
       php7-pear \
-      php7-redis; \
+      php7-redis \
+      php7-soap; \
     pear channel-update pear.php.net; \
     pear install Mail Mail_Mime Net_SMTP; \
     mkdir -p /var/log/fpm; \

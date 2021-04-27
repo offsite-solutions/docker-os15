@@ -1,7 +1,7 @@
 # Offsite Solutions :: Base docker images
 
 ## Base image
-Base image is based on OpenSUSE Leap 15.2, with the following features:
+Base image is based on OpenSUSE Leap 15.3, with the following features:
 
 ### System apps
 - Apache 2.4
@@ -87,6 +87,7 @@ The actual version of PHP 7.4 installed with the followings:
 - opcache
 - pear
 - redis
+- soap
 
 #### php.ini
 PHP ini settings found in:
