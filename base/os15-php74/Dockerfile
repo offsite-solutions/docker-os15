@@ -15,6 +15,7 @@ RUN zypper --non-interactive --gpg-auto-import-keys \
       telnet \
       zip \
       unzip \
+      tar \
       php7 \
       php7-fpm \
       php7-openssl \

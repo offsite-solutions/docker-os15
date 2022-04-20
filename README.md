@@ -12,6 +12,10 @@ Base image is based on OpenSUSE Leap 15.3, with the following features:
     - telnet
 - Runtime editing - debugging
     - Nano
+- Archive
+    - zip
+    - unzip
+    - tar
     
 ### PHP 7.4
 - FPM

@@ -5,6 +5,7 @@ cwd=$(pwd)
 cd ../base/os15-php74-xxx \
 &&
 docker build \
+--progress=plain \
 --force-rm \
 --no-cache \
 --rm \
