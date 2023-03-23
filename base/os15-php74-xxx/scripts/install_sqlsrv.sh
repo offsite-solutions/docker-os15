@@ -17,8 +17,10 @@ echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 zypper --non-interactive --gpg-auto-import-keys install make unixODBC-devel
 
 pecl channel-update pecl.php.net
-pecl install sqlsrv
-pecl install pdo_sqlsrv
+# latest PHP 7.4 version
+pecl install sqlsrv-5.10.1
+# latest PHP 7.4 version
+pecl install pdo_sqlsrv-5.10.1
 
 echo "extension=pdo_sqlsrv.so" >> `php --ini | grep "Scan for additional .ini files" | sed -e "s|.*:\s*||"`/pdo_sqlsrv.ini
 echo "extension=sqlsrv.so" >> `php --ini | grep "Scan for additional .ini files" | sed -e "s|.*:\s*||"`/sqlsrv.ini
