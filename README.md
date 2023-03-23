@@ -1,7 +1,7 @@
 # Offsite Solutions :: Base docker images
 
 ## Base image
-Base image is based on OpenSUSE Leap 15.3, with the following features:
+Base image is based on OpenSUSE Leap 15.4, with the following features:
 
 ### System apps
 - Apache 2.4
@@ -92,6 +92,7 @@ The actual version of PHP 7.4 installed with the followings:
 - pear
 - redis
 - soap
+- exif
 
 #### php.ini
 PHP ini settings found in:
@@ -209,7 +210,7 @@ Example, build a base image with oci8 driver and xDebug enabled:
 ### Microsoft SQL Server
     --build-arg with_sqlsrv=TRUE
 - Microsoft SQL server client
-- PHP 7.4 PDO
+- PHP 7.4 PDO (5.10.1 - last compatible version)
 - PEAR MDB2#sqlsrv beta
 
 ### xDebug
