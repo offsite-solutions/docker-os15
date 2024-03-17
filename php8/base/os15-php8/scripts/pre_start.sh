@@ -1,0 +1,1 @@
+# Pre-start scripts, ex: composer

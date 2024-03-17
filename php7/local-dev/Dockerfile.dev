@@ -1,0 +1,13 @@
+FROM offsite/os15-php74-base-dev:latest
+
+VOLUME /host
+VOLUME /var/log/applications
+VOLUME /var/log/apache2
+
+COPY etc/php/conf.d/*.ini /etc/php7/conf.d/
+COPY scripts/*.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/*.sh
+
+RUN printf "\n/usr/local/bin/pre_start_local.sh\n" >> /usr/local/bin/pre_start.sh;
+
+ENTRYPOINT ["/usr/local/bin/start.sh"]
