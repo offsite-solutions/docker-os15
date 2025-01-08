@@ -7,11 +7,9 @@ ARG with_pgsql=FALSE
 ARG with_sqlsrv=FALSE
 
 # copy oci8 install files if argument is TRUE
-COPY install/oci8-${with_oci8} /tmp/install/oci8
+COPY install/oci8-TRUE /tmp/install/oci8
 # copy xdebug install files if argument is TRUE
-COPY install/xdebug-${with_xdebug} /tmp/install
-# copy PEAR packages
-COPY install/MDB2 /tmp/install
+COPY install/xdebug-TRUE /tmp/install
 
 COPY scripts/* /usr/local/bin/
 RUN chmod +x /usr/local/bin/*.sh

@@ -3,8 +3,9 @@
 zypper --non-interactive --gpg-auto-import-keys install postgresql php7-pgsql php7-pdo
 
 pear config-set preferred_state beta
-pear install MDB2-2.5.0b5
-pear install "pear/MDB2#pgsql"
+pear channel-update pear.php.net
+pear install MDB2-2.5.0b5.tgz
+pear install MDB2_Driver_pgsql-1.5.0b4.tgz
 pear config-set preferred_state stable
 
 echo "" >> /usr/local/bin/env.sh

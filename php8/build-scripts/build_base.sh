@@ -2,7 +2,7 @@
 if [ -n "$1" ]; then VER=$1; else VER=latest; fi;
 cwd=$(pwd)
 
-cd ../../base/os15-php8 \
+cd ../base/os15-php8 \
 &&
 docker build \
 --progress=plain \

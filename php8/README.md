@@ -1,7 +1,7 @@
 # Offsite Solutions :: Base docker images
 
 ## Base image
-Base image is based on OpenSUSE Leap 15.5, with the following features:
+Base image is based on OpenSUSE Tumbleweed (20250106), with the following features:
 
 ### System apps
 - Apache 2.4
@@ -16,8 +16,11 @@ Base image is based on OpenSUSE Leap 15.5, with the following features:
     - zip
     - unzip
     - tar
-    
-### PHP 8.2
+- Versioning
+    - git
+    - svn  
+  
+### PHP 8.3
 - FPM
 - PEAR
 - OPCache
@@ -67,8 +70,8 @@ Apache logs located in
 
     /var/log/apache2
 
-### PHP 8.2
-The actual version of PHP 8.2.16 installed with the followings:
+### PHP 8.3
+The actual version of PHP 8.3.15 installed with the followings:
 
 #### Modules
 - fpm
@@ -197,28 +200,25 @@ Example, build a base image with oci8 driver and xDebug enabled:
 ### Oracle
     --build-arg with_oci8=TRUE
 - ORACLE Instantclient 21.13 Base and SDK
-- PHP 8.2 PDO
-- PEAR MDB2#oci8 beta
+- PHP 8.3 PDO
     
 ### PostgreSQL
     --build-arg with_pgsql=TRUE
-- PostgreSQL 15 client
-- PHP 8.2 PDO
-- PEAR MDB2#pgsql beta
+- PostgreSQL 17.2 client
+- PHP 8.3 PDO
 
 ### Microsoft SQL Server
     --build-arg with_sqlsrv=TRUE
 - Microsoft SQL server client
-- PHP 8.2 PDO (5.12.0 - last compatible version)
-- PEAR MDB2#sqlsrv beta
+- PHP 8.3 PDO (5.12.0 - last compatible version)
 
 ### xDebug
     --build-arg with_xDebug=TRUE
-- PHP 8.2 xDebug 3.3.1 extension
+- PHP 8.3 xDebug 3.4.0 extension
 
 ### Composer
     --build-arg with_composer=TRUE
-- PHP 8.2 composer2
+- PHP 8.3 composer2
 
 ## Build scripts
 Found in ./build-scripts/

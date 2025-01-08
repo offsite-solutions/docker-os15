@@ -28,8 +28,9 @@ make install
 echo "extension=oci8.so" >> `php --ini | grep "Scan for additional .ini files" | sed -e "s|.*:\s*||"`/oci8.ini
 
 pear config-set preferred_state beta
-pear install MDB2-2.5.0b5
-pear install "pear/MDB2#oci8"
+pear channel-update pear.php.net
+pear install MDB2-2.5.0b5.tgz
+pear install MDB2_Driver_oci8-1.5.0b4.tgz
 pear config-set preferred_state stable
 mv /usr/share/php7/PEAR/MDB2/Driver/oci8.php /usr/share/php7/PEAR/MDB2/Driver/oci8.php-orig
 mv /tmp/install/oci8/usr/share/php7/PEAR/MDB2/Driver/oci8.php /usr/share/php7/PEAR/MDB2/Driver/oci8.php

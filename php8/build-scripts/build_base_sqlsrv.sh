@@ -1,7 +1,7 @@
 #!/bin/bash
 cwd=$(pwd)
 
-cd ../../base/os15-php8-xxx \
+cd ../base/os15-php8-xxx \
 &&
 docker build \
 --progress=plain \

@@ -5,5 +5,5 @@ docker build \
 --force-rm \
 --no-cache \
 --rm \
--t offsite-dev:$VER -t offsite-dev:latest \
+-t offsite-dev-php7:$VER -t offsite-dev-php7:latest \
 -f Dockerfile.dev .

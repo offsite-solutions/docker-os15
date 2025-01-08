@@ -26,8 +26,9 @@ echo "extension=pdo_sqlsrv.so" >> `php --ini | grep "Scan for additional .ini fi
 echo "extension=sqlsrv.so" >> `php --ini | grep "Scan for additional .ini files" | sed -e "s|.*:\s*||"`/sqlsrv.ini
 
 pear config-set preferred_state beta
-pear install MDB2-2.5.0b5
-pear install "pear/MDB2#sqlsrv"
+pear channel-update pear.php.net
+pear install MDB2-2.5.0b5.tgz
+pear install MDB2_Driver_sqlsrv-1.5.0b5.tgz
 pear config-set preferred_state stable
 
 # clean up

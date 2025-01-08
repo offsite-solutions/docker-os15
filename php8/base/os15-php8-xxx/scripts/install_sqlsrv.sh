@@ -25,14 +25,8 @@ echo "extension=sqlsrv.so" >> `php --ini | grep "Scan for additional .ini files"
 
 cd /tmp/install
 
-pear config-set preferred_state beta
-pear channel-update pear.php.net
-pear install MDB2-2.5.0b5.tgz
-pear install MDB2_Driver_sqlsrv-1.5.0b5.tgz
-pear config-set preferred_state stable
-
 # clean up
-zypper --non-interactive rm -u php8-pecl php8-devel
+zypper --non-interactive rm -u php8-pecl php8-devel make
 
 echo "" >> /usr/local/bin/env.sh
 echo "# Microsoft SQL Server environments" >> /usr/local/bin/env.sh
