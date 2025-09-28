@@ -1,12 +1,12 @@
 # Offsite Solutions :: Base docker images
 
 ## Base image
-Base image is based on OpenSUSE Tumbleweed (20250106), with the following features:
+Base image is based on OpenSUSE Tumbleweed (20250928), with the following features:
 
 ### System apps
-- Apache 2.4
-- Cronie
-- Supervisord
+- Apache v2.4.65
+- Cronie v1.7.2
+- Supervisord v4.2.5
 - Network
     - curl
     - telnet
@@ -20,9 +20,8 @@ Base image is based on OpenSUSE Tumbleweed (20250106), with the following featur
     - git
     - svn  
   
-### PHP 8.3
+### PHP 8.4
 - FPM
-- PEAR
 - OPCache
 - Composer
 
@@ -70,8 +69,13 @@ Apache logs located in
 
     /var/log/apache2
 
-### PHP 8.3
-The actual version of PHP 8.3.15 installed with the followings:
+### PHP 8.4
+    The actual version of PHP 8.4.15 installed with the followings:
+    PHP 8.4.12 (cli) (built: Aug 28 2025 15:30:21) (NTS)
+    Copyright (c) The PHP Group
+    Zend Engine v4.4.12, Copyright (c) Zend Technologies
+        with Zend OPcache v8.4.12, Copyright (c), by Zend Technologies
+        with Xdebug v3.4.5, Copyright (c) 2002-2025, by Derick Rethans
 
 #### Modules
 - fpm
@@ -91,7 +95,6 @@ The actual version of PHP 8.3.15 installed with the followings:
 - xmlreader
 - xmlwriter
 - opcache
-- pear
 - redis
 - soap
 - exif
@@ -105,14 +108,6 @@ PHP ini settings found in:
 FPM configured to listen on TCP:9074
 
     /etc/php8/fpm/php-fpm.d/default.conf
-
-#### PEAR
-    /etc/php8/conf.d/000_pear.ini
-PEAR installed with the following modules
-- Mail
-- Mail_Mime
-- Net_SMTP
-- MDB2 (beta MDB2-2.5.0b5)
 
 #### OPCache
 OPCache is enabled by default
@@ -200,25 +195,25 @@ Example, build a base image with oci8 driver and xDebug enabled:
 ### Oracle
     --build-arg with_oci8=TRUE
 - ORACLE Instantclient 21.13 Base and SDK
-- PHP 8.3 PDO
+- PHP OCI v1.1.0
     
 ### PostgreSQL
     --build-arg with_pgsql=TRUE
-- PostgreSQL 17.2 client
-- PHP 8.3 PDO
+- PostgreSQL 17.2.9 client
+- PDO v17.6
 
 ### Microsoft SQL Server
     --build-arg with_sqlsrv=TRUE
-- Microsoft SQL server client
-- PHP 8.3 PDO (5.12.0 - last compatible version)
+- Microsoft SQL server client v17
+- PDO v5.12.0
 
 ### xDebug
     --build-arg with_xDebug=TRUE
-- PHP 8.3 xDebug 3.4.0 extension
+- xDebug v3.4.5 extension
 
 ### Composer
     --build-arg with_composer=TRUE
-- PHP 8.3 composer2
+- Composer v2.8.9
 
 ## Build scripts
 Found in ./build-scripts/
