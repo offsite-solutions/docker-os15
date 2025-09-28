@@ -8,7 +8,7 @@ if [ -n "$1" ]; then VER=$1; else VER=latest; fi;
 RUNNING=$(docker inspect --format="{{ .State.Running }}" offsite_base_dev8 2> /dev/null)
 
 if [ $? -eq 1 ]; then
-  echo "offsite_base_8 does not exist."
+  echo "offsite_base_dev8 does not exist."
 else
   docker rm --force offsite_base_dev8
 fi

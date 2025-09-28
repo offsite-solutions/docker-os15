@@ -16,7 +16,7 @@ cat /host/dockerconfig/etc/hosts >> /etc/hosts
 
 # linking tnsadmin
 printf "Linking ORACLE TNS_ADMIN...\n"
-ln -sf /host/dockerconfig/instantclient/tnsnames.ora /usr/lib/oracle/19.8/client64/
+ln -sf /host/dockerconfig/instantclient/tnsnames.ora /usr/lib/oracle/21/client64/
 
 # Creating phpinfo into server root
 printf "Creating phpinfo, access as 'http://localhost:nnn/phpinfo.php' ...\n"

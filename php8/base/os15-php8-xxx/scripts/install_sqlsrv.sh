@@ -9,7 +9,7 @@ zypper --non-interactive --gpg-auto-import-keys install php8-pecl php8-devel php
 curl -O https://packages.microsoft.com/keys/microsoft.asc
 rpm --import microsoft.asc
 zypper --non-interactive --gpg-auto-import-keys addrepo "https://packages.microsoft.com/config/sles/15/prod.repo"
-ACCEPT_EULA=Y zypper --non-interactive --gpg-auto-import-keys install msodbcsql17
+ACCEPT_EULA=Y zypper --non-interactive --gpg-auto-import-keys install msodbcsql17 glibc-gconv-modules-extra
 ACCEPT_EULA=Y zypper --non-interactive --gpg-auto-import-keys install mssql-tools
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc

@@ -6,4 +6,4 @@ docker build \
 --no-cache \
 --rm \
 -t offsite-dev-php8:$VER -t offsite-dev-php8:latest \
--f Dockerfile.dev-php8 .
+-f Dockerfile.dev .
