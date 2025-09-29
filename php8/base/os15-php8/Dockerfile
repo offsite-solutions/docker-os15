@@ -22,6 +22,7 @@ RUN zypper --non-interactive --gpg-auto-import-keys refresh; \
       git \
       subversion \
       php8 \
+      php8-cli \
       php8-fpm \
       php8-openssl \
       php8-gd \
